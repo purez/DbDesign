@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+	<mapper namespace="com.sj.mapper.GoodsMapper">
+	
+		 <insert id="add" parameterType="Goods" >
+	        insert into goods (gid,gname,jprice,sprice,sid,number) 
+	        values (#{gid},#{gname},#{jprice},#{sprice},#{sid},#{number})    
+	    </insert>
+	    
+	   	    <select id="list" resultType="Goods">
+	        select * from   goods order by gid desc     
+
+	    </select>
+	    
+	        <select id="get" parameterType="String" resultType="Goods">
+	        select * from   goods where gid= #{gid}    
+	    </select>
+	    
+	    <delete id="delete" parameterType="Goods" >
+	        delete from  goods where gid= #{gid}   
+	    </delete>
+	    
+	      <update id="update" parameterType="String" >
+	        update goods set number=#{0} where gid=#{1}    
+	    </update>
+	     
+	      <update id="updateG" parameterType="Goods" >
+	        update goods set gname=#{gname},jprice=#{jprice},sprice=#{sprice},sid=#{sid},number=#{number} where gid=#{gid}    
+	    </update>
+	    
+	    
+	    
+	   
+	</mapper>
+

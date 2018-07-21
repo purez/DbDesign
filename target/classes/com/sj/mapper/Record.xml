@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+	<mapper namespace="com.sj.mapper.RecordMapper">
+             
+              
+	     <insert id="add" parameterType="Record" >
+	        insert into record (rid,datetime,allmoney,cid) 
+	        values (#{rid},#{datetime},#{allmoney},#{cid})    
+	    </insert>
+
+	    
+	   	    <select id="list" resultType="Record">
+	        select * from   record order by rid desc     
+
+	    </select>
+	    
+	        <select id="get" parameterType="String" resultType="Record">
+	        select * from   record where rid= #{rid}    
+	    </select>
+	    
+	    <delete id="delete" parameterType="Record" >
+	        delete from  record where rid= #{rid}   
+	    </delete>
+	     <update id="update" parameterType="String" >
+	        update record set allmoney=#{0} where rid=#{1}    
+	    </update>
+	    
+	    
+	   
+	</mapper>
+

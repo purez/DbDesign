@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+	<mapper namespace="com.sj.mapper.SupplierMapper">
+
+	    
+	   	    <select id="list" resultType="Supplier">
+	        select * from   supplier order by sid desc     
+
+	    </select>
+	    
+	     <insert id="add" parameterType="Supplier" >
+	        insert into supplier (sid,sname,dealer,phone) 
+	        values (#{sid},#{sname},#{dealer},#{phone})    
+	    </insert>
+	        <select id="get" parameterType="String" resultType="Supplier">
+	        select * from   supplier  where sid= #{sid}    
+	    </select>
+	    
+	    <delete id="delete" parameterType="Supplier" >
+	        delete from  supplier  where sid= #{sid}   
+	    </delete>
+	    
+	    
+	   
+	</mapper>
+

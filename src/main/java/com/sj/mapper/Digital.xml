@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+	<mapper namespace="com.sj.mapper.DigitalMapper">
+           
+           	 <insert id="add" parameterType="Digital" >
+	        insert into digital (rid,did,gid,number) 
+	        values (#{rid},#{did},#{gid},#{number})   
+	         
+	      </insert>
+
+	    
+	   	    <select id="listById"  parameterType="String" resultType="Digital">
+	        select * from  digital where rid=#{rid} order by rid desc     
+
+	    </select>
+	    
+	        <select id="get" parameterType="String" resultType="Digital">
+	        select * from   digital where did= #{did}    
+	    </select>
+	    
+	    <delete id="delete" parameterType="Digital" >
+	        delete from  digital where did= #{did}   
+	    </delete>
+	    
+	    
+	   
+	</mapper>
+
